@@ -1,4 +1,4 @@
-module wafpb
+module github.com/Goose47/wafpb
 
 go 1.22.4
 

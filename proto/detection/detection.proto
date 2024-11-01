@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package detection;
 
-option go_package = "wafpb/proto/detection";
+option go_package = "github.com/Goose47/wafpb/proto/detection";
 
 service Detection {
   rpc CheckIP (CheckIPRequest) returns (CheckIPResponse);
