@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package detection;
+
+option go_package = "waf/proto/detection";
+
+service Detection {
+  rpc CheckIP (CheckIPRequest) returns (CheckIPResponse);
+}
+
+message CheckIPRequest {
+  string ip = 1;
+}
+message CheckIPResponse {
+  bool is_suspicious = 1;
+}
