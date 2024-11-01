@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package test;
 
-option go_package = "waf/proto/test";
+option go_package = "wafpb/proto/test";
 
 service Test {
   rpc Ping (PingRequest) returns (PingResponse);
