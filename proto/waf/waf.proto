@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package waf;
+
+option go_package = "github.com/Goose47/wafpb/proto/waf";
+
+service WAF {
+  // Analyze analyzes http traffic and gives recommendations to block it
+  rpc Analyze (AnalyzeRequest) returns (AnalyzeResponse);
+}
+
+message AnalyzeRequest {
+  string ip = 1; // client ip
+  bytes request = 2; // raw http request data
+}
+message AnalyzeResponse {
+  float attack_probability = 1; // probability that request contains attack (ranges from 0 to 1)
+}
