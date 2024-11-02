@@ -5,6 +5,7 @@ package detection;
 option go_package = "github.com/Goose47/wafpb/proto/detection";
 
 service Detection {
+  // CheckIP checks whether given ip is suspicious
   rpc CheckIP (CheckIPRequest) returns (CheckIPResponse);
 }
 
