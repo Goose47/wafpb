@@ -26,6 +26,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type DetectionClient interface {
+	// CheckIP checks whether given ip is suspicious
 	CheckIP(ctx context.Context, in *CheckIPRequest, opts ...grpc.CallOption) (*CheckIPResponse, error)
 }
 
@@ -51,6 +52,7 @@ func (c *detectionClient) CheckIP(ctx context.Context, in *CheckIPRequest, opts 
 // All implementations must embed UnimplementedDetectionServer
 // for forward compatibility.
 type DetectionServer interface {
+	// CheckIP checks whether given ip is suspicious
 	CheckIP(context.Context, *CheckIPRequest) (*CheckIPResponse, error)
 	mustEmbedUnimplementedDetectionServer()
 }
