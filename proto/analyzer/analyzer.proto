@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package detection;
+package analyzer;
 
 option go_package = "github.com/Goose47/wafpb/proto/analyzer";
 

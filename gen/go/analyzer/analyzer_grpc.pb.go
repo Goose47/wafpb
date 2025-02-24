@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Analyzer_Analyze_FullMethodName = "/detection.Analyzer/Analyze"
+	Analyzer_Analyze_FullMethodName = "/analyzer.Analyzer/Analyze"
 )
 
 // AnalyzerClient is the client API for Analyzer service.
@@ -110,7 +110,7 @@ func _Analyzer_Analyze_Handler(srv interface{}, ctx context.Context, dec func(in
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Analyzer_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "detection.Analyzer",
+	ServiceName: "analyzer.Analyzer",
 	HandlerType: (*AnalyzerServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
