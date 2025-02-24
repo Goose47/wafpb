@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package detection;
+
+option go_package = "github.com/Goose47/wafpb/proto/analyzer";
+
+service Analyzer {
+  // CheckIP checks whether incoming request is an attack
+  rpc Analyze (AnalyzeRequest) returns (AnalyzeResponse);
+}
+
+message AnalyzeRequest {
+  message HTTPParam {
+    string key = 1;
+    string value = 2;
+  }
+
+  string clientIP = 1;
+  string clientPort = 2;
+  string serverIP = 3;
+  string serverPort = 4;
+  string URI = 5;
+  string method = 6;
+  string proto = 7;
+  repeated HTTPParam headers = 8;
+  repeated HTTPParam queryParams = 9;
+  repeated HTTPParam bodyParams = 10;
+}
+
+message AnalyzeResponse {
+  bool is_attack = 1;
+}
