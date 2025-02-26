@@ -15,16 +15,16 @@ message AnalyzeRequest {
     string value = 2;
   }
 
-  string clientIP = 1;
-  string clientPort = 2;
-  string serverIP = 3;
-  string serverPort = 4;
-  string URI = 5;
+  string client_ip = 1;
+  string client_port = 2;
+  string server_ip = 3;
+  string server_port = 4;
+  string uri = 5;
   string method = 6;
   string proto = 7;
   repeated HTTPParam headers = 8;
-  repeated HTTPParam queryParams = 9;
-  repeated HTTPParam bodyParams = 10;
+  repeated HTTPParam query_params = 9;
+  repeated HTTPParam body_params = 10;
 }
 
 message AnalyzeResponse {
