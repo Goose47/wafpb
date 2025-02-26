@@ -10,8 +10,21 @@ service WAF {
 }
 
 message AnalyzeRequest {
-  string ip = 1; // client ip
-  bytes request = 2; // raw http request data
+  message HTTPParam {
+    string key = 1;
+    string value = 2;
+  }
+
+  string client_ip = 1;
+  string client_port = 2;
+  string server_ip = 3;
+  string server_port = 4;
+  string uri = 5;
+  string method = 6;
+  string proto = 7;
+  repeated HTTPParam headers = 8;
+  repeated HTTPParam query_params = 9;
+  repeated HTTPParam body_params = 10;
 }
 message AnalyzeResponse {
   float attack_probability = 1; // probability that request contains attack (ranges from 0 to 1)
