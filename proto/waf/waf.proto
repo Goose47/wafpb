@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 package waf;
 
 option go_package = "github.com/Goose47/wafpb/proto/waf";
@@ -15,16 +17,17 @@ message AnalyzeRequest {
     string value = 2;
   }
 
-  string client_ip = 1;
-  string client_port = 2;
-  string server_ip = 3;
-  string server_port = 4;
-  string uri = 5;
-  string method = 6;
-  string proto = 7;
-  repeated HTTPParam headers = 8;
-  repeated HTTPParam query_params = 9;
-  repeated HTTPParam body_params = 10;
+  google.protobuf.Timestamp timestamp = 1;
+  string client_ip = 2;
+  string client_port = 3;
+  string server_ip = 4;
+  string server_port = 5;
+  string uri = 6;
+  string method = 7;
+  string proto = 8;
+  repeated HTTPParam headers = 9;
+  repeated HTTPParam query_params = 10;
+  repeated HTTPParam body_params = 11;
 }
 message AnalyzeResponse {
   float attack_probability = 1; // probability that request contains attack (ranges from 0 to 1)
