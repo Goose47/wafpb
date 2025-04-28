@@ -1,12 +1,16 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 package detection;
 
 option go_package = "github.com/Goose47/wafpb/proto/detection";
 
 service Detection {
-  // CheckIP checks whether given ip is suspicious
+  // CheckIP checks whether given ip is suspicious.
   rpc CheckIP (CheckIPRequest) returns (CheckIPResponse);
+  // Fingerprints returns timestamps of last requests from given ip.
+  rpc Fingerprints (FingerprintsRequest) returns (FingerprintsResponse);
 }
 
 message CheckIPRequest {
@@ -14,4 +18,11 @@ message CheckIPRequest {
 }
 message CheckIPResponse {
   bool is_suspicious = 1;
+}
+
+message FingerprintsRequest {
+  string ip = 1;
+}
+message FingerprintsResponse {
+  repeated google.protobuf.Timestamp timestamps = 1;
 }
