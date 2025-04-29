@@ -15,6 +15,7 @@ service Detection {
 
 message CheckIPRequest {
   string ip = 1;
+  google.protobuf.Timestamp timestamp = 2;
 }
 message CheckIPResponse {
   bool is_suspicious = 1;
@@ -22,6 +23,7 @@ message CheckIPResponse {
 
 message FingerprintsRequest {
   string ip = 1;
+  google.protobuf.Timestamp after = 2;
 }
 message FingerprintsResponse {
   repeated google.protobuf.Timestamp timestamps = 1;
